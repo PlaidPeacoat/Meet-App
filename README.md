@@ -43,3 +43,16 @@ which city is more active.
 ▪ Given: The app is loaded.
 ▪ When: When the user clicks on a city.
 ▪ Then: A chart with the number of events in a city is served to the user.
+
+
+4.2, use of serverless functions:
+
+User authentication: When a user logs into the app, a serverless function can be triggered to authenticate their credentials and generate an access token. This function can be hosted on a cloud platform like AWS Lambda or Google Cloud Functions.
+
+Real-time messaging: The Meet App could use serverless functions to handle real-time messaging between users. These functions can be triggered when a message is sent or received, and can be hosted on a cloud platform like Firebase Cloud Functions or AWS Lambda.
+
+Notifications: When a user receives a new message or a meeting invitation, a serverless function can be triggered to send a push notification to their device. This function can be hosted on a cloud platform like AWS Lambda or Google Cloud Functions.
+
+Media processing: The Meet App could use serverless functions to process and store media files such as images or videos. When a user uploads a file, a serverless function can be triggered to compress, resize or transcode the file, and store it in a cloud storage like Amazon S3 or Google Cloud Storage.
+
+The use of serverless functions in CareerFoundry Meet App is beneficial because it allows the app to scale seamlessly based on the number of users without worrying about infrastructure management. As the number of users increases, the app can rely on cloud providers to automatically scale the functions based on usage, and only pay for the resources used. This helps the app to keep its operational costs low while delivering a high-quality experience to users. Additionally, using serverless functions can make development faster, as developers can focus on building features rather than managing infrastructure.
