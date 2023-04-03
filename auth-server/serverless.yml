@@ -18,12 +18,18 @@ service: auth-server
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
-frameworkVersion: '3'
+frameworkVersion: "3"
 
 provider:
   name: aws
   runtime: nodejs12.x
-
+  region: eu-central-1
+  timeout: 60 # optional, in seconds, default is 6
+  environment:
+    CLIENT_ID: ${file(config.json):541561718155-uhrlgpjl0l0j5a8es9mqbi8g5pr9jkai.apps.googleusercontent.com}
+    CLIENT_SECRET: ${file(config.json):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}
+    PROJECT_ID: ${file(config.json):meet-app-382419}
+    CALENDAR_ID: ${file(config.json):fullstackwebdev@careerfoundry.com}
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
@@ -61,6 +67,13 @@ provider:
 functions:
   hello:
     handler: handler.hello
+
+ getAuthURL:
+    handler: handler.getAuthURL
+    events:
+      - http:
+          path: api/get-auth-url
+          method: get
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
