@@ -137,3 +137,8 @@ module.exports.getCalendarEvents = async (event) => {
       };
     });
 };
+
+//URL endpoints:
+// GET - https://bu80ucml81.execute-api.us-east-2.amazonaws.com/dev/api/get-auth-url
+//   GET - https://bu80ucml81.execute-api.us-east-2.amazonaws.com/dev/api/token/{code}
+//   GET - https://bu80ucml81.execute-api.us-east-2.amazonaws.com/dev/api/get-events/{access_token}
