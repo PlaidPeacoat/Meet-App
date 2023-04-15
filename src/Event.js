@@ -1,51 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Event extends Component {
+  state = {
+    hide: true,
+  };
 
-  state = { collapsed: true };
-  toggleDetails = () => {
-    this.setState(prevState => ({
-      collapsed: !prevState.collapsed
-    }))
-  }
+  handleItemClicked = () => {
+    this.setState((prevState) => ({
+      hide: !prevState.hide,
+    }));
+  };
 
   render() {
     const { event } = this.props;
-    const { collapsed } = this.state;
-
     return (
-      <div className="Event">
-        <h2 className="summary">{ event.summary }</h2>
-        <p className="start">
-          { event.start.dateTime }
-        </p>
-        <p className="location">
-          {`Location: ${event.location}`}
-        </p>
-        <button
-          className='details-button'
-          onClick={this.toggleDetails}
-        >
-          {collapsed ? 'show' : 'hide'} details
-        </button>
-        {!collapsed && (
-          <div className='details'>
-            <h3 className='about'>
-              About this event:
-            </h3>
-            <a
-              className='link'
-              href={event.htmlLink}
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              See details on Google Calendar
-            </a>
-            <p className='description'>
-              {event.description}
-            </p>
-          </div>
+      <div>
+        <b className='title'>Summary: {event.summary}</b>
+        {!this.hide && (
+          <ul className='details'>
+            <li>Description: {event.description}</li>
+            <li>Location: {event.location}</li>
+            <li>Start: {new Date(event.start.dateTime).toISOString()}</li>
+            <li>End: {new Date(event.end.dateTime).toISOString()}</li>
+          </ul>
         )}
+        <button
+          className='detailsButton'
+          onClick={() => this.handleItemClicked()}
+        >
+          Details
+        </button>
       </div>
     );
   }
