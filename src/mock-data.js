@@ -1,4 +1,4 @@
-export const mockData = [
+const mockData = [
     {"kind": "calendar#event",
 "etag": "\"3181161784712000\"",
 "id": "4eahs9ghkhrvkld72hogu9ph3e_20200519T140000Z",
@@ -6572,3 +6572,5 @@ export const mockData = [
     "eventType": "default"
    }];
 
+JSON.parse(JSON.stringify(mockData));
+export { mockData };
