@@ -1,33 +1,33 @@
-// import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer';
 
 
-// describe('show/hide an event details', () => {
+describe('show/hide an event details', () => {
 
-//     test('An event element is collapsed by default', async () => {
+    test('An event element is collapsed by default', async () => {
         
-//         const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch();
     
-//         const page = await browser.newPage();
-//         await page.goto('http://localhost:3000/');
+        const page = await browser.newPage();
+        await page.goto('http://localhost:3000/');
     
-//         await page.waitForSelector('.event');
+        await page.waitForSelector('.event');
     
-//         const eventDetails = await page.$('.event .event__Details');
-//         expect(eventDetails).toBeNull();
-//         browser.close();
-//       });
+        const eventDetails = await page.$('.event .event__Details');
+        expect(eventDetails).toBeNull();
+        browser.close();
+      });
     
-//       test('User can expand an event to see its details', async () => {
-//         const browser = await puppeteer.launch();
-//         const page = await browser.newPage();
-//         await page.goto('http://localhost:3000/');
+      test('User can expand an event to see its details', async () => {
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+        await page.goto('http://localhost:3000/');
     
-//         await page.waitForSelector('.event');
-//         await page.click('.event .detailsButton');
+        await page.waitForSelector('.event');
+        await page.click('.event .detailsButton');
     
-//         const eventDetails = await page.$('.event .event__Details');
-//         expect(eventDetails).toBeDefined();
-//         browser.close();
-//       });
+        const eventDetails = await page.$('.event .event__Details');
+        expect(eventDetails).toBeDefined();
+        browser.close();
+      });
     
-// });
+});
