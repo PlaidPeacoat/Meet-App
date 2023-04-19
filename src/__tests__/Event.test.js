@@ -14,7 +14,7 @@ describe("<Event /> component", () => {
   });
 
   test("corresct details are rendered", () => {
-    const summary = EventWrapper.find(".title");
+    const summary = EventWrapper.find(".event");
     const details = EventWrapper.find(".details li");
     expect(summary.text()).toBe(`Summary: ${event.summary}`);
     expect(details.at(0).text()).toBe(`Description: ${event.description}`);
