@@ -13,7 +13,7 @@ describe("<Event /> component", () => {
     expect(EventWrapper.find("li")).toHaveLength(4);
   });
 
-  test("corresct details are rendered", () => {
+  test("correct details are rendered", () => {
     const summary = EventWrapper.find(".event");
     const details = EventWrapper.find(".details li");
     expect(summary.text()).toBe(`Summary: ${event.summary}`);
@@ -28,7 +28,7 @@ describe("<Event /> component", () => {
   });
 
   test("toggle boolean", () => {
-    const display = EventWrapper.find(".detailsButton");
+    const display = EventWrapper.find(".details-button");
     display.simulate("click");
     expect(EventWrapper.state("hide")).toBe(false);
   });
