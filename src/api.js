@@ -2,6 +2,7 @@ import { mockData } from "./mock-data";
 import axios from "axios";
 import NProgress from "nprogress";
 
+
 export const getAccessToken = async () => {
   const accessToken = localStorage.getItem("access_token");
   const tokenCheck = accessToken && (await checkToken(accessToken));
@@ -37,6 +38,12 @@ export const getEvents = async () => {
   if (window.location.href.startsWith("http://localhost")) {
     NProgress.done();
     return mockData;
+  }
+
+  if (!navigator.onLine) {
+    const data = localStorage.getItem("lastEvents");
+    NProgress.done();
+    return data?JSON.parse(data).events:[];;
   }
 
   const token = await getAccessToken();
