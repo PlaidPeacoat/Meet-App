@@ -18,8 +18,14 @@ class App extends Component {
     showWelcomeScreen: undefined,
   };
 
-  componentDidMount(){
+  async componentDidMount(){
     this.mounted = true;
+    const accessToken = localStorage.getItem('access_token');
+    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = await searchParams.get("code");
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    if ((code || isTokenValid) && this.mounted) {
     getEvents().then((events) => {
       if (this.mounted) {
       this.setState({ 
@@ -29,21 +35,9 @@ class App extends Component {
     }
     });
   }
-
-  async componentWillUnmount(){
-    this.mounted = true;
-    const accessToken = localStorage.getItem('access_token');
-    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
-    const searchParam = new URLSearchParams(window.location.search);
-    const code = searchParam.get('code');
-    this.setState({ showWelcomeScreen: !(code || isTokenValid )});
-    if ((code || isTokenValid) && this.mounted) {
-      getEvents().then((events) => {
-        if(this.mounted) {
-          this.setState({ events, locations: extractLocations(events)});
-        }
-      });
-    }
+  }
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   promptOfflineWarning = () => {
