@@ -1,3 +1,4 @@
+export const mockData = [
 {
   "kind": "calendar#events",
   "etag": "\"p32sfjckdu73vq0g\"",
@@ -15070,4 +15071,5 @@
    }
   ]
  }
- 
+] 
+
