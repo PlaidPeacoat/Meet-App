@@ -8,6 +8,20 @@ import { WarningAlert } from "./Alert";
 import WelcomeScreen from "./WelcomeScreen";
 import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
 
+
+getData = () => {
+  const {locations, 
+events} = this.state;
+  const data = locations.map((location)=>{
+    const number = events.filter((event) => event.location === location).length
+    const city = location.split(', ').shift()
+    return {city, number};
+  })
+  return data;
+};
+
+
+
 class App extends Component {
   state = {
     events: [],
