@@ -29,7 +29,7 @@ class="btn-text"
 </div>
 </div>
 <a
-href="https://plaidpeacoat.github.io/meet-app/public/index.html"
+href="https://plaidpeacoat.github.io/Meet-App/public/index.html"
 rel="nofollow noopener"
 >
 <a href="https://plaidpeacoat.github.io/Meet-App/privacy.html">Privacy policy</a>
