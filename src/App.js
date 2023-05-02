@@ -118,6 +118,7 @@ class App extends Component {
   };
 
   render() {
+    <WarningAlert text={this.state.warningText} />
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
     return (
       <div className='App'>
@@ -145,8 +146,7 @@ class App extends Component {
         <Tooltip cursor={{ strokeDasharray: '3 3' }} />
         <Scatter data={this.getData()} fill="#8884d8" />
       </ScatterChart>
-        <WarningAlert text={this.state.warningText} />
-        </ResponsiveContainer>
+      </ResponsiveContainer>
         <EventList events={this.state.events} />
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken(); }}/>
       </div>
