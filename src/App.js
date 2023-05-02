@@ -123,6 +123,7 @@ class App extends Component {
       <div className='App'>
         <h1>Meet App</h1>
         <h4>Choose your nearest city</h4>
+        <header className="App-header">Meet App</header>
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
@@ -134,7 +135,7 @@ class App extends Component {
         />
         <h4>Events in each city</h4>
         <ScatterChart
-        width={400}
+        width={800}
         height={400}
         margin={{
           top: 20, right: 20, bottom: 20, left: 20,
