@@ -8,7 +8,7 @@ import { WarningAlert } from "./Alert";
 import WelcomeScreen from "./WelcomeScreen";
 import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
 import { ScatterChart } from "recharts";
-import { CartesianGrid, XAxis, YAxis, Tooltip, Scatter } from "recharts";
+import { CartesianGrid, XAxis, YAxis, Tooltip, Scatter, ResponsiveContainer } from "recharts";
 
 
 
@@ -134,9 +134,8 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
         <h4>Events in each city</h4>
+        <ResponsiveContainer height={400} >
         <ScatterChart
-        width={800}
-        height={400}
         margin={{
           top: 20, right: 20, bottom: 20, left: 20,
         }} >
@@ -147,13 +146,9 @@ class App extends Component {
         <Scatter data={this.getData()} fill="#8884d8" />
       </ScatterChart>
         <WarningAlert text={this.state.warningText} />
-        
+        </ResponsiveContainer>
         <EventList events={this.state.events} />
-        <WelcomeScreen
-          showWelcomeScreen={this.state.showWelcomeScreen}
-          getAccessToken={() => {
-            getAccessToken(); }}
-        />
+        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken(); }}/>
       </div>
     );
   }
