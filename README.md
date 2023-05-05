@@ -6,9 +6,17 @@ Meet App allows users to search for a city and get a list of events hosted in th
 
 ## Tech Stack
 React, Recharts, AWS Lamda, serverless, Jest, cucmber-jest, Puppeteer, Atatus etc.
+## Features
+-Serverless functions deployed using AWS Lambda.
+-Performs Oauth and accesses Google Calender API via serverless functions
+-React Recharts visualization library
+-Jest test scripting for unit and integration testing
+-Enzyme for shallow rendering unit tests
+-Enzyme for full rendering integration tests
+-Puppeteer for user acceptance and end-to-end testing
+-Progressive Web Application
 ## User Stories and Scenarios
 
-## Features
 FEATURE 1: FILTER EVENTS BY CITY\
 User story: As a user, I should be able to filter events by city so that I can see the events that take place in that city.
 
